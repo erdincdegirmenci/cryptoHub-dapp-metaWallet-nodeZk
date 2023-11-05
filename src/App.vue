@@ -115,12 +115,14 @@ export default {
     async connectWallet() {
       this.showOverlay = true;
       setTimeout(async () => {
-        if (typeof window.ethereum !== 'undefined') {
-          alert('test1')
+        if (window.ethereum) {
+          alert('test3')
           try {
             const web3 = new Web3(window.ethereum);
             await ethereum.enable();
             // const accounts = await ethereum.request({ method: 'eth_accounts' });
+              await window.ethereum.request({ method: 'eth_requestAccounts' });
+        
               const accounts = await web3.eth.getAccounts();
             if (accounts.length > 0) {
               this.walletAddress = accounts[0];
