@@ -113,6 +113,7 @@ export default {
       }, 1500);
     },
     async connectWallet() {
+      alert('test')
       this.showOverlay = true;
       setTimeout(async () => {
         if (window.ethereum) {
