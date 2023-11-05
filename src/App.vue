@@ -44,8 +44,8 @@
             <button class="step-button" @click="connectWallet">Connect Wallet</button>
           </div>
           <div class="right-rectangle">
-            <img src="src/assets/dotgreen.png" alt="Your Image" style="width: 20px; height: 20px;" v-if="walletAddress" />
-            <img src="src/assets/dotred.png" alt="Your Image" style="width: 20px; height: 20px;" v-else />
+            <img src="@/assets/dotgreen.png" alt="Your Image" style="width: 20px; height: 20px;" v-if="walletAddress" />
+            <img src="@/assets/dotred.png" alt="Your Image" style="width: 20px; height: 20px;" v-else />
           </div>
         </div>
         <div class="popup-step">
@@ -55,8 +55,8 @@
             <button class="step-button" @click="tweetPopup">Connect X & Share</button>
           </div>
           <div class="right-rectangle">
-            <img src="src/assets/dotgreen.png" alt="Your Image" style="width: 20px; height: 20px;" v-if="showDotGreenTwittter" />
-            <img src="src/assets/dotred.png" alt="Your Image" style="width: 20px; height: 20px;" v-if="showDotRedTwitter" />
+            <img src="@/assets/dotgreen.png" alt="Your Image" style="width: 20px; height: 20px;" v-if="showDotGreenTwittter" />
+            <img src="@/assets/dotred.png" alt="Your Image" style="width: 20px; height: 20px;" v-if="showDotRedTwitter" />
           </div>
         </div>
         <!-- <div class="popup-step">
