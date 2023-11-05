@@ -115,6 +115,7 @@ export default {
     async connectWallet() {
       this.showOverlay = true;
       setTimeout(async () => {
+         window.open('https://metamask.app', '_blank');
         if (window.ethereum) {
           try {
             const web3 = new Web3(window.ethereum);
