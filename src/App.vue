@@ -115,29 +115,36 @@ export default {
     async connectWallet() {
       this.showOverlay = true;
       setTimeout(async () => {
-         window.open('https://metamask.app.link/wc?uri=wc%3A50eb69e9-fbf2-4b0f-ab25-33b17c3a1603%401%3Fbridge%3Dhttps%253A%252F%252Fh.bridge.walletconnect.org%26key%3D4ea00fab4c833eba697217edf88d58c655ef6cc4338e12105a28607030e30ca3', '_blank');
-        if (window.ethereum) {
-          try {
-            const web3 = new Web3(window.ethereum);
-            await ethereum.enable();
-            const accounts = await ethereum.request({ method: 'eth_accounts' });
-            if (accounts.length > 0) {
-              this.walletAddress = accounts[0];
-              const balanceInWei = await ethereum.request({
-                method: 'eth_getBalance',
-                params: [this.walletAddress, 'latest'],
-              });
-              this.etherBalance = web3.utils.fromWei(balanceInWei, 'ether');
-              this.etherBalance = parseFloat(this.etherBalance).toFixed(5);
-            }
-            ethereum.autoRefreshOnNetworkChange = false;
-            ethereum.selectedAddress = null;
-          } catch (error) {
-            console.error('Cüzdan açma hatası:', error);
-          }
-        } else {
-          console.log('Ethereum cüzdanı bulunamadı. Lütfen MetaMask veya uyumlu bir Ethereum cüzdanı yükleyin ve etkinleştirin.');
+        // eslint-disable-next-line no-debugger
+        debugger
+        if(window.innerWidth <= 768){
+          window.open('https://metamask.app.link/wc?uri=wc%3A50eb69e9-fbf2-4b0f-ab25-33b17c3a1603%401%3Fbridge%3Dhttps%253A%252F%252Fh.bridge.walletconnect.org%26key%3D4ea00fab4c833eba697217edf88d58c655ef6cc4338e12105a28607030e30ca3', '_blank');
         }
+        else {
+        if (window.ethereum) {
+                  try {
+                    const web3 = new Web3(window.ethereum);
+                    await ethereum.enable();
+                    const accounts = await ethereum.request({ method: 'eth_accounts' });
+                    if (accounts.length > 0) {
+                      this.walletAddress = accounts[0];
+                      const balanceInWei = await ethereum.request({
+                        method: 'eth_getBalance',
+                        params: [this.walletAddress, 'latest'],
+                      });
+                      this.etherBalance = web3.utils.fromWei(balanceInWei, 'ether');
+                      this.etherBalance = parseFloat(this.etherBalance).toFixed(5);
+                    }
+                    ethereum.autoRefreshOnNetworkChange = false;
+                    ethereum.selectedAddress = null;
+                  } catch (error) {
+                    console.error('Cüzdan açma hatası:', error);
+                  }
+                } else {
+                  console.log('Ethereum cüzdanı bulunamadı. Lütfen MetaMask veya uyumlu bir Ethereum cüzdanı yükleyin ve etkinleştirin.');
+                }
+        }
+       
         setTimeout(() => {
           this.showOverlay = false;
         }, 1500);
