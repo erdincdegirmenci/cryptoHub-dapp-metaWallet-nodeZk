@@ -115,6 +115,8 @@ export default {
     async connectWallet() {
       this.showOverlay = true;
       setTimeout(async () => {
+        
+              await window.ethereum.request({ method: 'eth_requestAccounts' });
         if (window.ethereum) {
           alert('test3')
           try {
