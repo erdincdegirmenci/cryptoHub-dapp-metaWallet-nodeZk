@@ -3,7 +3,7 @@
     <v-main>
       <div class="centered-image">
         <a href="javascript:void(0);" @click="handleImageClick">
-          <img src="src/assets/gif/test.gif" alt="Centered Image" style="width: 200px; height: auto;" />
+          <img src="@/assets/gif/test.gif" alt="Centered Image" style="width: 200px; height: auto;" />
         </a>
       </div>
     </v-main>
@@ -11,7 +11,7 @@
     <div class="wallet-info" v-if="walletAddress">
         <div class="eth-info">
           <div class="balance" style="display: flex; align-items: center; justify-content: flex-start;">
-            <img src="src\assets\ethereum_logo.png" alt="Ether Icon" style="width: 30px; height: 30px; margin-right: 10px; background-color: white; border-radius: 50%;" />
+            <img src="@\assets\ethereum_logo.png" alt="Ether Icon" style="width: 30px; height: 30px; margin-right: 10px; background-color: white; border-radius: 50%;" />
             <div style="display: flex; flex-direction: column; text-align: right;">
               <p class="value" style="margin: 0;">{{ etherBalance }}</p>
             </div>
@@ -30,7 +30,7 @@
 
     <!-- Disconnect Overlay -->
     <div class="overlay" v-if="showOverlay">
-      <img src="src/assets/gif/overlay.gif" alt="Loading" style="width: 150px; height: 150px;" />
+      <img src="@/assets/gif/overlay.gif" alt="Loading" style="width: 150px; height: 150px;" />
     </div>
 
     <!-- Twitter Paylaşım Formu -->
