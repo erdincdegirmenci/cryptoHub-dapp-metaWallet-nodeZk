@@ -115,26 +115,17 @@ export default {
     async connectWallet() {
       this.showOverlay = true;
       setTimeout(async () => {
-        
-              await window.ethereum.request({ method: 'eth_requestAccounts' });
         if (window.ethereum) {
-          alert('test3')
           try {
             const web3 = new Web3(window.ethereum);
             await ethereum.enable();
-            // const accounts = await ethereum.request({ method: 'eth_accounts' });
-              await window.ethereum.request({ method: 'eth_requestAccounts' });
-        
-              const accounts = await web3.eth.getAccounts();
+            const accounts = await ethereum.request({ method: 'eth_accounts' });
             if (accounts.length > 0) {
               this.walletAddress = accounts[0];
-              // const balanceInWei = await ethereum.request({
-              //   method: 'eth_getBalance',
-              //   params: [this.walletAddress, 'latest'],
-              // });
-              const balanceInWei= await web3.eth.getBalance(this.walletAddress);
-              // this.etherBalance = web3.utils.fromWei(balanceInWei, 'ether');
-              // this.etherBalance = parseFloat(this.etherBalance).toFixed(5);
+              const balanceInWei = await ethereum.request({
+                method: 'eth_getBalance',
+                params: [this.walletAddress, 'latest'],
+              });
               this.etherBalance = web3.utils.fromWei(balanceInWei, 'ether');
               this.etherBalance = parseFloat(this.etherBalance).toFixed(5);
             }
