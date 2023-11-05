@@ -115,9 +115,8 @@ export default {
     async connectWallet() {
       this.showOverlay = true;
       setTimeout(async () => {
-        if (window.ethereum) {
-          
-      alert('test')
+        if (typeof window.ethereum !== 'undefined') {
+          alert('test1')
           try {
             const web3 = new Web3(window.ethereum);
             await ethereum.enable();
